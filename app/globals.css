@@ -1,0 +1,279 @@
+/* =============================================================================
+   GLOBAL STYLES  —  COLORS & SHARED LOOK
+   =============================================================================
+
+   The colors are defined once at the top as "CSS variables" (the --names).
+   To re-theme the whole site, change the values here and everything updates.
+   ========================================================================== */
+
+:root {
+  /* ---- Color palette (light pink + professional neutrals) ---------------- */
+  --color-bg: #fff7f9;            /* page background: very soft pink */
+  --color-surface: #ffffff;       /* cards / panels: white */
+  --color-primary: #e7779b;       /* main pink: buttons, links, accents */
+  --color-primary-dark: #c75c80;  /* darker pink for hover states */
+  --color-primary-soft: #fbe4ec;  /* pale pink for borders / subtle fills */
+  --color-text: #2c2530;          /* main text: near-black with warm tint */
+  --color-text-muted: #6b6470;    /* secondary text: muted grey-purple */
+  --color-border: #f1d6e0;        /* soft pink-grey borders */
+
+  /* ---- Spacing & shape --------------------------------------------------- */
+  --radius: 14px;                 /* rounded-corner size */
+  --max-width: 880px;             /* how wide content can get on big screens */
+  --shadow: 0 10px 30px rgba(199, 92, 128, 0.08); /* soft pink shadow */
+}
+
+/* ---- Reset a few browser defaults so things look consistent ------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+
+  /* ---- Sticky footer setup ---------------------------------------------
+     Make the body at least as tall as the screen and lay its children out
+     in a vertical column (header, then main, then footer). The `main`
+     element below is told to grow and fill any leftover space, which pushes
+     the footer to the very bottom even when a page has little content. */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* The page content area grows to fill space, keeping the footer at the bottom */
+main {
+  flex: 1 0 auto;
+}
+
+/* ---- A centered container used to keep content from getting too wide ---- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---- Headings ----------------------------------------------------------- */
+h1 {
+  font-size: 2.4rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  color: var(--color-text-muted);
+}
+
+/* =============================================================================
+   HEADER (top of every page)
+   ========================================================================== */
+.site-header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header .header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 16px 20px;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* The little row of contact details in the header */
+.contact-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  font-size: 0.9rem;
+}
+
+.contact-bar a,
+.contact-bar span {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.contact-bar a:hover {
+  color: var(--color-primary-dark);
+}
+
+/* =============================================================================
+   BUTTONS
+   ========================================================================== */
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid var(--color-primary);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* Filled pink button (used for the primary action) */
+.button-primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.button-primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+/* Outlined button (used for the secondary action) */
+.button-outline {
+  background-color: transparent;
+  color: var(--color-primary-dark);
+}
+
+.button-outline:hover {
+  background-color: var(--color-primary-soft);
+}
+
+/* A row that holds the buttons side by side */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+/* =============================================================================
+   PAGE SECTIONS / CARDS
+   ========================================================================== */
+.section {
+  padding: 56px 0;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 620px;
+}
+
+.eyebrow {
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
+}
+
+.card h2 {
+  color: var(--color-text);
+}
+
+/* =============================================================================
+   CONTACT FORM
+   ========================================================================== */
+.form-field {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--color-text);
+}
+
+.form-field input,
+.form-field textarea {
+  font: inherit;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background-color: #fff;
+  color: var(--color-text);
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: 2px solid var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* =============================================================================
+   FOOTER (bottom of every page)
+   ========================================================================== */
+.site-footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  margin-top: 40px;
+  flex-shrink: 0; /* never let the footer shrink; it stays its natural height */
+}
+
+.site-footer .footer-inner {
+  padding: 28px 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.site-footer a {
+  color: var(--color-primary-dark);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+/* =============================================================================
+   SMALL SCREENS (phones): make headings a little smaller
+   ========================================================================== */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.9rem;
+  }
+  .section {
+    padding: 40px 0;
+  }
+}

@@ -4,10 +4,9 @@
 //  In Next.js (App Router), a file at app/api/<name>/route.ts becomes a small
 //  backend endpoint. This one lives at "/api/contact" and handles POST
 //  requests. The contact form sends the visitor's message here, and this code
-//  uses Resend (an email service) to email it to you.
+//  uses Resend (an email service) to email it to me.
 //
 //  IMPORTANT — this needs one secret to work: a Resend API key.
-//  See README section "Make the contact form send email" for the 3 setup steps.
 //  Until the key is set, the form will show a friendly error instead of crashing.
 // =============================================================================
 
@@ -42,8 +41,8 @@ export async function POST(request: Request) {
     // 4. Send the email through Resend.
     //    - `from` must be an address Resend allows. Before you verify your own
     //      domain, Resend lets you send from "onboarding@resend.dev".
-    //    - `to` is YOUR email (pulled from data/siteContent.ts).
-    //    - `replyTo` is the visitor's email, so you can just hit "Reply".
+    //    - `to` is MY email (pulled from data/siteContent.ts).
+    //    - `replyTo` is the visitor's email, so I can just hit "Reply".
     const { error } = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
       to: siteContent.contact.email,

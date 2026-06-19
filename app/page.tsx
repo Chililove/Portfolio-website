@@ -1,19 +1,19 @@
 // =============================================================================
 //  HOME PAGE  —  this is what visitors see at "/" (the front page)
 // =============================================================================
-//  It shows a short intro and the two buttons:
-//    1) "Contact me"   -> goes to the /contact page
-//    2) "View projects" -> goes to the /projects page
-//  The contact details at the very top and very bottom come from the Header
-//  and Footer (added automatically in app/layout.tsx).
 // =============================================================================
 
 import Link from "next/link";
 import { siteContent } from "@/data/siteContent";
 
 export default function HomePage() {
-  const { heading, intro, contactButtonLabel, projectsButtonLabel } =
-    siteContent.home;
+  const {
+    heading,
+    intro,
+    contactButtonLabel,
+    projectsButtonLabel,
+    lookingButtonLabel,
+  } = siteContent.home;
 
   return (
     <section className="section hero">
@@ -29,6 +29,9 @@ export default function HomePage() {
           </Link>
           <Link href="/projects" className="button button-outline">
             {projectsButtonLabel}
+          </Link>
+          <Link href="/looking-for" className="button button-outline">
+            {lookingButtonLabel}
           </Link>
         </div>
       </div>

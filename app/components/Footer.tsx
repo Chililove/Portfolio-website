@@ -1,8 +1,8 @@
 // =============================================================================
 //  FOOTER  —  shown at the BOTTOM of every page
 // =============================================================================
-//  It repeats your contact details (good practice — visitors who scroll to the
-//  bottom can reach you without scrolling back up) plus your social links.
+//  It repeats my contact details (good practice — visitors who scroll to the
+//  bottom can reach me without scrolling back up) plus my social links.
 //  All text comes from data/siteContent.ts.
 // =============================================================================
 

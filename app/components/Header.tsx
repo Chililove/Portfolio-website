@@ -1,8 +1,8 @@
 // =============================================================================
 //  HEADER  —  shown at the TOP of every page
 // =============================================================================
-//  It displays your name (links back to the home page) and a row of contact
-//  details. The text comes from data/siteContent.ts, so edit it there.
+//  It displays my name (links back to the home page) and a row of contact
+//  details. The text comes from data/siteContent.ts, so edit it there if needed.
 // =============================================================================
 
 import Link from "next/link";

@@ -25,6 +25,8 @@ export default function ProjectsPage() {
               <p>{project.description}</p>
               <a
                 href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="button button-outline"
                 style={{ marginTop: "10px" }}
               >

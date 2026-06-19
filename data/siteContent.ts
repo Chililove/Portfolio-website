@@ -2,13 +2,6 @@
 //  SITE CONTENT  —  EDIT YOUR TEXT HERE
 // =============================================================================
 //
-//  This is the ONE file you change to update almost all the words on your site.
-//  You do NOT need to touch the page code to change text. Just edit the
-//  values inside the quotation marks below, save the file, and the website
-//  updates automatically.
-//
-//  Tip: only change the text INSIDE the "quotes". Keep the names on the left
-//  (like `name:`, `tagline:`) exactly as they are.
 // =============================================================================
 
 export const siteContent = {
@@ -37,6 +30,49 @@ export const siteContent = {
       "change this text in the file: data/siteContent.ts.",
     contactButtonLabel: "Contact me",
     projectsButtonLabel: "View projects",
+    lookingButtonLabel: "What I'm looking for",
+  },
+
+  // ---- "What I'm looking for" page text ------------------------------------
+  // This page tells recruiters the kind of work I want.
+  lookingPage: {
+    heading: "What I'm looking for",
+    intro:
+      "I'm open to roles where I can keep growing as a developer. Here are the " +
+      "kinds of work and teams I'm most excited about — but I'm happy to hear " +
+      "about anything adjacent too.",
+
+    // Each {} block is one role/interest card. Edit, add, or remove freely.
+    roles: [
+      {
+        title: "Frontend / Full-stack web development",
+        description:
+          "Building user-facing web apps with TypeScript, React, and Next.js. " +
+          "I enjoy turning designs into fast, accessible interfaces.",
+      },
+      {
+        title: "Junior / entry-level developer roles",
+        description:
+          "A team where I can learn from experienced engineers, get code " +
+          "review, and take on real responsibility over time.",
+      },
+      {
+        title: "Working with modern tooling and AI",
+        description:
+          "Teams that use modern workflows and AI tools to build better " +
+          "software — I like learning new tech and shipping real features.",
+      },
+    ],
+
+    valuesHeading: "What matters to me in a team",
+    values: [
+      "A culture of learning and mentorship",
+      "Clean, well-tested code and honest code review",
+      "Building things real people actually use",
+    ],
+
+    locationNote:
+      "Based in Esbjerg, Denmark. Open to on-site, hybrid, or remote roles.",
   },
 
   // ---- Contact page text ---------------------------------------------------
@@ -57,18 +93,14 @@ export const siteContent = {
     // Each {} block is one project card. Copy a block to add another project.
     projects: [
       {
-        title: "Project placeholder 1",
+        title: "Tiny Chili Store — full-stack e-commerce 🌶️",
         description:
-          "A short placeholder description of my first project. Explain the " +
-          "problem it solved and the tech you used.",
-        link: "#",
-      },
-      {
-        title: "Project placeholder 2",
-        description:
-          "A short placeholder description of my second project. Replace this " +
-          "with real details when ready.",
-        link: "#",
+          "A complete online store built with Next.js, TypeScript, and " +
+          "PostgreSQL (Prisma). Browse products, add to a cart that persists " +
+          "across visits, and pay securely via Stripe Checkout. A " +
+          "signature-verified Stripe webhook records each order and updates " +
+          "inventory. Deployed on Vercel.",
+        link: "https://chilis-ecommerce-store-project.vercel.app/",
       },
       /*{
         title: "Project placeholder 3",

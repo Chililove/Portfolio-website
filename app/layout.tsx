@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "./components/Footer";
+import CommandPalette from "./components/CommandPalette";
 import { siteContent } from "@/data/siteContent";
 
 // This sets the browser tab title and description (good for sharing/SEO).
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body>
         <main>{children}</main>
         <Footer />
+        <CommandPalette />
       </body>
     </html>
   );

@@ -450,3 +450,127 @@ main a:not(.button):hover,
   color: var(--color-primary-dark);
   background-size: 100% 2px; /* grow the underline to full width */
 }
+
+/* =============================================================================
+   COMMAND PALETTE  (⌘K)
+   ========================================================================== */
+
+/* Always-visible trigger, pinned bottom-right, so people find the shortcut. */
+.cmdk-trigger {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.cmdk-trigger:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+}
+.cmdk-trigger kbd {
+  font-family: inherit;
+  font-size: 0.75rem;
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+  border-radius: 6px;
+  padding: 2px 6px;
+}
+
+/* The dimmed, blurred backdrop that fills the whole screen. */
+.cmdk-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: rgba(44, 37, 48, 0.4);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 14vh 16px 0;
+  animation: cmdkFade 0.15s ease;
+}
+
+/* floating search panel. */
+.cmdk-panel {
+  width: 100%;
+  max-width: 520px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 30px 60px rgba(44, 37, 48, 0.25);
+  overflow: hidden;
+  animation: cmdkPop 0.16s ease;
+}
+
+@keyframes cmdkFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes cmdkPop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cmdk-input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  padding: 16px 18px;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--color-text);
+  background: transparent;
+  outline: none;
+}
+
+.cmdk-list {
+  list-style: none;
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.cmdk-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--color-text);
+}
+/* The row the arrow keys (or mouse) have landed on. */
+.cmdk-item.active {
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+}
+.cmdk-icon {
+  font-size: 1.1rem;
+}
+
+.cmdk-empty {
+  padding: 16px 12px;
+  color: var(--color-text-muted);
+  text-align: center;
+}

@@ -23,15 +23,33 @@ export default function ProjectsPage() {
             <article className="card" key={index}>
               <h2>{project.title}</h2>
               <p>{project.description}</p>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button button-outline"
-                style={{ marginTop: "10px" }}
-              >
-                View project
-              </a>
+              {/* Live demo button — only shown if the project has a live link. */}
+              {project.link && (
+                <div style={{ marginTop: "12px" }}>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button button-primary"
+                  >
+                    View project
+                  </a>
+                </div>
+              )}
+
+              {/* Source-code link, shown beneath, if the project has a repo. */}
+              {project.repo && (
+                <div style={{ marginTop: "10px" }}>
+                  <a
+                    href={project.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontSize: "0.9rem" }}
+                  >
+                    View code on GitHub →
+                  </a>
+                </div>
+              )}
             </article>
           ))}
         </div>

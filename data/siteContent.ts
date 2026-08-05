@@ -17,17 +17,20 @@ export const siteContent = {
     email: "louiselauenborg@hotmail.com",
     phone: "+45 27827813",
     location: "Esbjerg, Denmark",
-    github: "https://github.com/louisechili",
-    linkedin: "https://www.linkedin.com/in/louisechililauenborg/",
+    github: "https://github.com/Chililove",
+    linkedin: "https://www.linkedin.com/in/louise-lauenborg/",
   },
 
   // ---- Home page text ------------------------------------------------------
   home: {
     heading: "Hi, I'm Louise Chili! 👋",
     intro:
-      "This is a placeholder introduction. I should write two or three sentences about " +
-      "who I am, what I build, and the kind of role I am looking for. " +
-      "change this text in the file: data/siteContent.ts.",
+      "I'm a web and software developer based in Esbjerg, Denmark, who loves " +
+      "turning ideas into real, working products. I build full-stack apps with " +
+      "TypeScript, Next.js, and PostgreSQL, from an online store with Stripe " +
+      "payments to a membership platform for a local music studio. I care about " +
+      "clean code, thoughtful user experience, and shipping things people " +
+      "actually use, and I'm looking for a team where I can keep growing.",
     contactButtonLabel: "Contact me",
     projectsButtonLabel: "View projects",
     lookingButtonLabel: "What I'm looking for",
@@ -39,7 +42,7 @@ export const siteContent = {
     heading: "What I'm looking for",
     intro:
       "I'm open to roles where I can keep growing as a developer. Here are the " +
-      "kinds of work and teams I'm most excited about — but I'm happy to hear " +
+      "kinds of work and teams I'm most excited about, but I'm happy to hear " +
       "about anything adjacent too.",
 
     // Each {} block is one role/interest card. Edit, add, or remove freely.
@@ -93,7 +96,7 @@ export const siteContent = {
     // Each {} block is one project card. Copy a block to add another project.
     projects: [
       {
-        title: "Tiny Chili Store — full-stack e-commerce 🌶️",
+        title: "Tiny Chili Store: full-stack e-commerce 🌶️",
         description:
           "A complete online store built with Next.js, TypeScript, and " +
           "PostgreSQL (Prisma). Browse products, add to a cart that persists " +
@@ -101,14 +104,22 @@ export const siteContent = {
           "signature-verified Stripe webhook records each order and updates " +
           "inventory. Deployed on Vercel.",
         link: "https://chilis-ecommerce-store-project.vercel.app/",
+        repo: "https://github.com/Chililove/Chilis-ecommerce-store-project",
       },
-      /*{
-        title: "Project placeholder 3",
+      {
+        title: "Farveladen Membership Platform 🎶",
         description:
-          "A short placeholder description of my third project. Three strong " +
-          "projects are better than ten weak ones.",
-        link: "#",
-      },*/
+          "A membership system for a music studio association. Members sign in " +
+          "with a passwordless magic link, accept the rules, pick a plan, and " +
+          "register their dues, while an admin confirms payments and sees who " +
+          "has lapsed. Built with Next.js, TypeScript, Prisma, Postgres, and " +
+          "Auth.js.",
+        // When you deploy a live demo, paste its URL into `link` below and the
+        // "View project" button appears automatically.
+        link: "",
+        repo: "https://github.com/Chililove/Farveladens-Membership-app",
+      },
+      // Copy a block above to add another project.
     ],
   },
 

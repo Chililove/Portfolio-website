@@ -1,8 +1,3 @@
-// =============================================================================
-//  HOME PAGE  —  this is what visitors see at "/" (the front page)
-// =============================================================================
-// =============================================================================
-
 import Link from "next/link";
 import { siteContent } from "@/data/siteContent";
 
@@ -17,6 +12,11 @@ export default function HomePage() {
 
   return (
     <section className="section hero">
+      {/* Decorative floating accent (a nod to "Chili"). aria-hidden = screen
+          readers ignore it since it carries no meaning. */}
+      <span className="hero-accent" aria-hidden="true">
+        🌶️
+      </span>
       <div className="container">
         <p className="eyebrow">{siteContent.role}</p>
         <h1>{heading}</h1>

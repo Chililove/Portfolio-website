@@ -1,10 +1,3 @@
-/* =============================================================================
-   GLOBAL STYLES  —  COLORS & SHARED LOOK
-   =============================================================================
-
-   The colors are defined once at the top as "CSS variables" (the --names).
-   To re-theme the whole site, change the values here and everything updates.
-   ========================================================================== */
 
 :root {
   /* ---- Color palette (light pink + professional neutrals) ---------------- */
@@ -21,6 +14,10 @@
   --radius: 14px;                 /* rounded-corner size */
   --max-width: 880px;             /* how wide content can get on big screens */
   --shadow: 0 10px 30px rgba(199, 92, 128, 0.08); /* soft pink shadow */
+  --shadow-lift: 0 18px 40px rgba(199, 92, 128, 0.22); /* stronger shadow on hover */
+
+  /* A warm pink→coral gradient used for the headline and primary button. */
+  --gradient: linear-gradient(120deg, #e7779b 0%, #f28a6b 100%);
 }
 
 /* ---- Reset a few browser defaults so things look consistent ------------- */
@@ -37,6 +34,11 @@ body {
 
 body {
   background-color: var(--color-bg);
+  /* Two soft radial "glows" in the corners add depth behind the content. */
+  background-image:
+    radial-gradient(55% 45% at 12% -5%, rgba(231, 119, 155, 0.20), transparent 60%),
+    radial-gradient(50% 40% at 105% 8%, rgba(242, 138, 107, 0.16), transparent 55%);
+  background-attachment: fixed;
   color: var(--color-text);
   font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
   line-height: 1.6;
@@ -67,8 +69,12 @@ main {
 
 /* ---- Headings ----------------------------------------------------------- */
 h1 {
-  font-size: 2.4rem;
-  line-height: 1.2;
+  /* clamp(min, preferred, max): scales with the viewport but never too small
+     or too big — responsive type without media queries. */
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 800;
   margin-bottom: 0.5rem;
 }
 
@@ -128,25 +134,30 @@ p {
    ========================================================================== */
 .button {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 12px 26px;
   border-radius: var(--radius);
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
   border: 2px solid var(--color-primary);
-  transition: background-color 0.15s ease, color 0.15s ease;
+  /* Animate transform + shadow so the hover "lift" below is smooth. */
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    background-color 0.18s ease, color 0.18s ease;
 }
 
-/* Filled pink button (used for the primary action) */
+/* Any button rises slightly and casts a bigger shadow on hover. */
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+}
+
+/* Filled gradient button (the primary action). */
 .button-primary {
-  background-color: var(--color-primary);
+  background-image: var(--gradient);
+  background-color: var(--color-primary); /* fallback if gradient unsupported */
   color: #ffffff;
-}
-
-.button-primary:hover {
-  background-color: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
+  border-color: transparent;
 }
 
 /* Outlined button (used for the secondary action) */
@@ -180,21 +191,56 @@ p {
 }
 
 .eyebrow {
+  display: inline-block;
   color: var(--color-primary-dark);
-  font-weight: 600;
+  background-color: var(--color-primary-soft);
+  border: 1px solid var(--color-border);
+  padding: 6px 14px;
+  border-radius: 999px; /* fully rounded = pill shape */
+  font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  font-size: 0.85rem;
-  margin-bottom: 8px;
+  font-size: 0.8rem;
+  margin-bottom: 18px;
 }
 
 .card {
+  position: relative;
+  overflow: hidden; /* keeps the top accent bar inside the rounded corners */
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 24px;
   box-shadow: var(--shadow);
   margin-bottom: 18px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+/* A gradient bar that grows across the top of the card on hover.
+   ::before is a decorative pseudo-element — an extra "layer" made in CSS
+   with no markup needed. scaleX(0) hides it; scaleX(1) reveals it. */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-image: var(--gradient);
+  transform: scaleX(0);
+  transform-origin: left; /* grow from the left edge */
+  transition: transform 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
+  border-color: var(--color-primary);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
 }
 
 .card h2 {
@@ -276,4 +322,131 @@ p {
   .section {
     padding: 40px 0;
   }
+}
+
+/* =============================================================================
+   HERO + MOTION  (the new bold styling)
+   ========================================================================== */
+
+/* A small fade-and-rise, reused for entrance animations. */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* A gentle bob for the floating chili accent. */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-6deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(6deg);
+  }
+}
+
+.hero {
+  position: relative; /* lets the floating accent position itself inside */
+  padding-top: clamp(48px, 10vh, 110px);
+  padding-bottom: clamp(48px, 10vh, 90px);
+  overflow: hidden; /* the drifting accent can't cause sideways scroll */
+}
+
+/* Gradient text: paint the heading with the gradient, then clip the paint to
+   the letter shapes by making the text itself transparent. */
+.hero h1 {
+  background-image: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Entrance: each hero piece fades up, staggered by a delay so they arrive one
+   after another. `forwards` keeps the finished state instead of resetting. */
+.hero .eyebrow,
+.hero h1,
+.hero .container > p:not(.eyebrow),
+.hero .button-row {
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards;
+}
+.hero .eyebrow {
+  animation-delay: 0.05s;
+}
+.hero h1 {
+  animation-delay: 0.15s;
+}
+.hero .container > p:not(.eyebrow) {
+  animation-delay: 0.3s;
+}
+.hero .button-row {
+  animation-delay: 0.42s;
+}
+
+/* The floating chili (a nod to your name) — decorative only. */
+.hero-accent {
+  position: absolute;
+  top: 8px;
+  right: 6%;
+  font-size: clamp(3rem, 9vw, 5.5rem);
+  animation: float 5s ease-in-out infinite;
+  filter: drop-shadow(0 12px 22px rgba(199, 92, 128, 0.28));
+  pointer-events: none; /* decoration must never block clicks */
+}
+
+@media (max-width: 640px) {
+  .hero-accent {
+    display: none; /* hide on phones so it can't overlap the text */
+  }
+}
+
+/* Accessibility: honour users who set "reduce motion" in their OS. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  /* The hero pieces start invisible for the animation — make them visible
+     again now that the animation is switched off. */
+  .hero .eyebrow,
+  .hero h1,
+  .hero .container > p:not(.eyebrow),
+  .hero .button-row {
+    opacity: 1;
+  }
+}
+
+/* =============================================================================
+   TEXT LINK HOVER  (animated underline)
+   ========================================================================== */
+/* Applies to real text links (footer, the contact email link, etc.) but NOT
+   to .button links. The trick: draw a 2px gradient "line" as a background at
+   the bottom of the text, and animate its WIDTH from 0 to full on hover. */
+main a:not(.button),
+.site-footer a {
+  text-decoration: none;
+  color: var(--color-primary-dark);
+  background-image: linear-gradient(
+    var(--color-primary),
+    var(--color-primary)
+  );
+  background-repeat: no-repeat;
+  background-position: 0 100%; /* pin the line to the bottom */
+  background-size: 0% 2px; /* start with zero width */
+  transition: background-size 0.25s ease, color 0.2s ease;
+}
+
+main a:not(.button):hover,
+.site-footer a:hover {
+  text-decoration: none; /* override the old footer underline-on-hover */
+  color: var(--color-primary-dark);
+  background-size: 100% 2px; /* grow the underline to full width */
 }

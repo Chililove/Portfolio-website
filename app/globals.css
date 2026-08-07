@@ -70,7 +70,7 @@ main {
 /* ---- Headings ----------------------------------------------------------- */
 h1 {
   /* clamp(min, preferred, max): scales with the viewport but never too small
-     or too big — responsive type without media queries. */
+     or too big - responsive type without media queries. */
   font-size: clamp(2.2rem, 6vw, 3.8rem);
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -85,48 +85,6 @@ h2 {
 
 p {
   color: var(--color-text-muted);
-}
-
-/* =============================================================================
-   HEADER (top of every page)
-   ========================================================================== */
-.site-header {
-  background-color: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.site-header .header-inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 16px 20px;
-}
-
-.brand {
-  font-weight: 700;
-  font-size: 1.15rem;
-  color: var(--color-text);
-  text-decoration: none;
-}
-
-/* The little row of contact details in the header */
-.contact-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 18px;
-  font-size: 0.9rem;
-}
-
-.contact-bar a,
-.contact-bar span {
-  color: var(--color-text-muted);
-  text-decoration: none;
-}
-
-.contact-bar a:hover {
-  color: var(--color-primary-dark);
 }
 
 /* =============================================================================
@@ -218,7 +176,7 @@ p {
 }
 
 /* A gradient bar that grows across the top of the card on hover.
-   ::before is a decorative pseudo-element — an extra "layer" made in CSS
+   ::before is a decorative pseudo-element - an extra "layer" made in CSS
    with no markup needed. scaleX(0) hides it; scaleX(1) reveals it. */
 .card::before {
   content: "";
@@ -389,7 +347,7 @@ p {
   animation-delay: 0.42s;
 }
 
-/* The floating chili (a nod to your name) — decorative only. */
+/* The floating chili (a nod to your name) - decorative only. */
 .hero-accent {
   position: absolute;
   top: 8px;
@@ -414,7 +372,7 @@ p {
     animation: none !important;
     transition: none !important;
   }
-  /* The hero pieces start invisible for the animation — make them visible
+  /* The hero pieces start invisible for the animation - make them visible
      again now that the animation is switched off. */
   .hero .eyebrow,
   .hero h1,
@@ -573,4 +531,57 @@ main a:not(.button):hover,
   padding: 16px 12px;
   color: var(--color-text-muted);
   text-align: center;
+}
+
+/* =============================================================================
+   SMALL LAYOUT HELPERS
+   ========================================================================== */
+/* Wrapper around a list of cards (projects, roles). */
+.card-list {
+  margin-top: 24px;
+}
+
+/* Spacing for the two links inside a project card. */
+.project-actions {
+  margin-top: 12px;
+}
+.project-repo-link {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+/* "What I'm looking for" page bits. */
+.values-heading {
+  margin-top: 32px;
+}
+.values-list {
+  margin-top: 8px;
+  padding-left: 20px;
+  color: var(--color-text-muted);
+}
+.values-list li {
+  margin-bottom: 6px;
+}
+.location-note {
+  margin-top: 24px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Contact page bits. */
+.contact-card {
+  margin-top: 24px;
+}
+.contact-alt {
+  margin-top: 18px;
+}
+
+/* Contact form status messages. */
+.form-status {
+  margin-top: 14px;
+  color: var(--color-primary-dark);
+}
+.form-status--error {
+  margin-top: 14px;
+  color: #b00020;
 }

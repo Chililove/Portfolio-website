@@ -1,13 +1,4 @@
-// =============================================================================
-//  CONTACT PAGE  —  lives at "/contact"
-// =============================================================================
-//  Because this file is at app/contact/page.tsx, Next.js automatically makes
-//  it available at the URL "/contact". (Folder name = URL path.)
-//
-//  The form itself lives in app/components/ContactForm.tsx (a client component)
-//  because it needs to run in the browser. This page just shows the heading,
-//  intro, and the form inside a card.
-// =============================================================================
+// Contact page (/contact): heading, intro, and the contact form.
 
 import { siteContent } from "@/data/siteContent";
 import ContactForm from "../components/ContactForm";
@@ -22,11 +13,11 @@ export default function ContactPage() {
         <h1>{heading}</h1>
         <p>{intro}</p>
 
-        <div className="card" style={{ marginTop: "24px" }}>
+        <div className="card contact-card">
           {/* The interactive form that sends email via /api/contact */}
           <ContactForm />
 
-          <p style={{ marginTop: "18px" }}>
+          <p className="contact-alt">
             Prefer email? Reach me at{" "}
             <a href={`mailto:${email}`}>{email}</a>.
           </p>

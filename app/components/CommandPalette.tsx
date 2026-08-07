@@ -39,8 +39,18 @@ export default function CommandPalette() {
         window.location.href = `mailto:${email}`;
       },
     },
-    { label: "GitHub", icon: "🐙", run: () => window.open(github, "_blank") },
-    { label: "LinkedIn", icon: "🔗", run: () => window.open(linkedin, "_blank") },
+    {
+      label: "GitHub",
+      icon: "🐙",
+      // "noopener,noreferrer" stops the new tab from getting a reference back
+      // to this page (a small security + performance best practice).
+      run: () => window.open(github, "_blank", "noopener,noreferrer"),
+    },
+    {
+      label: "LinkedIn",
+      icon: "🔗",
+      run: () => window.open(linkedin, "_blank", "noopener,noreferrer"),
+    },
   ];
 
   // Filter by the typed query (matches the label or its hidden keywords).
@@ -71,9 +81,17 @@ export default function CommandPalette() {
     return () => window.removeEventListener("keydown", onKey); // cleanup
   }, []);
 
-  // Move focus into the search box whenever the palette opens.
+  // When the palette opens: move focus into the search box and lock the page
+  // behind it from scrolling. The cleanup restores scrolling when it closes.
   useEffect(() => {
-    if (open) inputRef.current?.focus();
+    if (!open) return;
+    inputRef.current?.focus();
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
   }, [open]);
 
   function runCommand(cmd: Command | undefined) {
@@ -93,6 +111,10 @@ export default function CommandPalette() {
     } else if (e.key === "Enter") {
       e.preventDefault();
       runCommand(filtered[active]);
+    } else if (e.key === "Tab") {
+      // Focus trap: the input is the only focusable control in the dialog, so
+      // swallow Tab to stop focus escaping to the page behind the overlay.
+      e.preventDefault();
     }
   }
 
@@ -142,7 +164,9 @@ export default function CommandPalette() {
                   onMouseEnter={() => setActive(i)}
                   onClick={() => runCommand(cmd)}
                 >
-                  <span className="cmdk-icon">{cmd.icon}</span>
+                  <span className="cmdk-icon" aria-hidden="true">
+                    {cmd.icon}
+                  </span>
                   <span>{cmd.label}</span>
                 </li>
               ))}

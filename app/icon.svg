@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Chili favicon: a red pepper with a green stem, on a soft pink tile. -->
+  <rect width="64" height="64" rx="14" fill="#fbe4ec"/>
+  <!-- Red body -->
+  <path d="M28 17
+           C 46 17, 52 33, 44 46
+           C 39 55, 27 58, 21 51
+           C 33 51, 40 40, 37 30
+           C 35 23, 31 20, 28 17 Z"
+        fill="#e23744"/>
+  <!-- Green stem -->
+  <path d="M25 18
+           C 22 13, 24 8, 30 7
+           C 28 10, 30 13, 34 13
+           C 32 17, 28 18, 25 18 Z"
+        fill="#3fae5a"/>
+</svg>

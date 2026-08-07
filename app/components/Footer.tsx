@@ -1,10 +1,4 @@
-// =============================================================================
-//  FOOTER  —  shown at the BOTTOM of every page
-// =============================================================================
-//  It repeats my contact details (good practice — visitors who scroll to the
-//  bottom can reach me without scrolling back up) plus my social links.
-//  All text comes from data/siteContent.ts.
-// =============================================================================
+// Footer on every page: contact details and social links.
 
 import { siteContent } from "@/data/siteContent";
 

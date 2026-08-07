@@ -1,8 +1,4 @@
-// =============================================================================
-//  SITE CONTENT  —  EDIT YOUR TEXT HERE
-// =============================================================================
-//
-// =============================================================================
+// Site content: edit all the visible text here.
 
 export const siteContent = {
   // ---- Your basic identity -------------------------------------------------
@@ -63,7 +59,7 @@ export const siteContent = {
         title: "Working with modern tooling and AI",
         description:
           "Teams that use modern workflows and AI tools to build better " +
-          "software — I like learning new tech and shipping real features.",
+          "software. I like learning new tech and shipping real features.",
       },
     ],
 
@@ -82,8 +78,9 @@ export const siteContent = {
   contactPage: {
     heading: "Get in touch with me",
     intro:
-      "Please fill out the form to contact me. I also welcome direct emails at louiselauenborg@hotmail.com.This is a placeholder contact page. The form below is not wired up to " +
-      "send email yet — it's a starting point I will connect later.",
+      "Fill out the form below to reach me and your message lands straight in " +
+      "my inbox. You are also welcome to email me directly at " +
+      "louiselauenborg@hotmail.com.",
   },
 
   // ---- Projects page text --------------------------------------------------

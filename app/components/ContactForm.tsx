@@ -1,12 +1,4 @@
-// =============================================================================
-//  CONTACT FORM  —  the interactive form that talks to the API
-// =============================================================================
-//  "use client" tells Next.js this component runs in the browser (it needs to,
-//  because it uses state and reacts to the visitor clicking "Send").
-//
-//  When the form is submitted, it sends the data to our /api/contact route and
-//  then shows one of four states: idle, sending, sent, or error.
-// =============================================================================
+// Contact form (client component): posts to /api/contact and shows send status.
 
 "use client";
 
@@ -86,12 +78,12 @@ export default function ContactForm() {
 
       {/* Friendly status messages shown after the visitor clicks Send. */}
       {status === "sent" && (
-        <p style={{ marginTop: "14px", color: "var(--color-primary-dark)" }}>
+        <p className="form-status">
           Thanks! Your message was sent. I&apos;ll get back to you soon.
         </p>
       )}
       {status === "error" && (
-        <p style={{ marginTop: "14px", color: "#b00020" }}>
+        <p className="form-status--error">
           Sorry, something went wrong. Please email me directly instead.
         </p>
       )}

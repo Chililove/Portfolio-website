@@ -1,14 +1,5 @@
-// =============================================================================
-//  CONTACT API ROUTE  —  the server code that actually sends the email
-// =============================================================================
-//  In Next.js (App Router), a file at app/api/<name>/route.ts becomes a small
-//  backend endpoint. This one lives at "/api/contact" and handles POST
-//  requests. The contact form sends the visitor's message here, and this code
-//  uses Resend (an email service) to email it to me.
-//
-//  IMPORTANT — this needs one secret to work: a Resend API key.
-//  Until the key is set, the form will show a friendly error instead of crashing.
-// =============================================================================
+// POST /api/contact: sends the contact form message via Resend.
+// Needs RESEND_API_KEY; without it the route returns a friendly error.
 
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
@@ -22,7 +13,7 @@ export async function POST(request: Request) {
     // 1. Read the data the form sent us.
     const { name, email, message } = await request.json();
 
-    // 2. Basic validation — make sure nothing important is empty.
+    // 2. Basic validation - make sure nothing important is empty.
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Please fill in your name, email, and a message." },

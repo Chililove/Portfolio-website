@@ -1,10 +1,4 @@
-// =============================================================================
-//  PROJECTS PAGE  —  lives at "/projects"
-// =============================================================================
-//  This page loops over the list of projects in data/siteContent.ts and shows
-//  one card per project. To add a project, just add another {} block to the
-//  `projects` array in that file — this page updates automatically.
-// =============================================================================
+// Projects page (/projects): one card per project from siteContent.ts.
 
 import { siteContent } from "@/data/siteContent";
 
@@ -17,15 +11,15 @@ export default function ProjectsPage() {
         <h1>{heading}</h1>
         <p>{intro}</p>
 
-        <div style={{ marginTop: "24px" }}>
+        <div className="card-list">
           {/* .map() draws one card for each project in the list. */}
-          {projects.map((project, index) => (
-            <article className="card" key={index}>
+          {projects.map((project) => (
+            <article className="card" key={project.title}>
               <h2>{project.title}</h2>
               <p>{project.description}</p>
-              {/* Live demo button — only shown if the project has a live link. */}
+              {/* Live demo button, only shown if the project has a live link. */}
               {project.link && (
-                <div style={{ marginTop: "12px" }}>
+                <div className="project-actions">
                   <a
                     href={project.link}
                     target="_blank"
@@ -39,12 +33,11 @@ export default function ProjectsPage() {
 
               {/* Source-code link, shown beneath, if the project has a repo. */}
               {project.repo && (
-                <div style={{ marginTop: "10px" }}>
+                <div className="project-repo-link">
                   <a
                     href={project.repo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ fontSize: "0.9rem" }}
                   >
                     View code on GitHub →
                   </a>

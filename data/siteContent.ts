@@ -112,11 +112,11 @@ export const siteContent = {
           "A membership system for a music studio association. Members sign in " +
           "with a passwordless magic link, accept the rules, pick a plan, and " +
           "register their dues, while an admin confirms payments and sees who " +
-          "has lapsed. Built with Next.js, TypeScript, Prisma, Postgres, and " +
+          "has lapsed. The live demo has a one-click \"Try as member\" and " +
+          "\"Try as admin\" login so you can explore both sides without an " +
+          "account. Built with Next.js, TypeScript, Prisma, Postgres, and " +
           "Auth.js.",
-        // When you deploy a live demo, paste its URL into `link` below and the
-        // "View project" button appears automatically.
-        link: "",
+        link: "https://farveladens-membership-app.vercel.app",
         repo: "https://github.com/Chililove/Farveladens-Membership-app",
       },
       {

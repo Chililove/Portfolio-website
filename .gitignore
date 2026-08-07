@@ -26,3 +26,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# project notes / AI assistant files (kept local, not in repo)
+PROJECT_ROADMAP.md
+ROADMAP.md
+CLAUDE.md
+AGENTS.md

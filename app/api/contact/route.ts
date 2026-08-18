@@ -30,13 +30,10 @@ export async function POST(request: Request) {
     }
 
     // 4. Send the email through Resend.
-    //    - `from` must be an address Resend allows. Before you verify your own
-    //      domain, Resend lets you send from "onboarding@resend.dev".
-    //    - `to` is MY email (pulled from data/siteContent.ts).
-    //    - `replyTo` is the visitor's email, so I can just hit "Reply".
+    const toAddress = process.env.CONTACT_TO_EMAIL ?? siteContent.contact.email;
     const { error } = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
-      to: siteContent.contact.email,
+      to: toAddress,
       replyTo: email,
       subject: `New portfolio message from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,

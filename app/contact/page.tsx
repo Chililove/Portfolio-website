@@ -2,6 +2,7 @@
 
 import { siteContent } from "@/data/siteContent";
 import ContactForm from "../components/ContactForm";
+import BackLink from "../components/BackLink";
 
 export default function ContactPage() {
   const { heading, intro } = siteContent.contactPage;
@@ -10,6 +11,7 @@ export default function ContactPage() {
   return (
     <section className="section">
       <div className="container">
+        <BackLink />
         <h1>{heading}</h1>
         <p>{intro}</p>
 

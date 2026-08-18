@@ -1,6 +1,7 @@
 // Projects page (/projects): one card per project from siteContent.ts.
 
 import { siteContent } from "@/data/siteContent";
+import BackLink from "../components/BackLink";
 
 export default function ProjectsPage() {
   const { heading, intro, projects } = siteContent.projectsPage;
@@ -8,6 +9,7 @@ export default function ProjectsPage() {
   return (
     <section className="section">
       <div className="container">
+        <BackLink />
         <h1>{heading}</h1>
         <p>{intro}</p>
 

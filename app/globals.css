@@ -534,6 +534,26 @@ main a:not(.button):hover,
 }
 
 /* =============================================================================
+   BACK LINK  (top of the inner pages)
+   ========================================================================== */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+/* The arrow slides a little to the left on hover for a subtle nudge. */
+.back-link span {
+  display: inline-block;
+  transition: transform 0.18s ease;
+}
+.back-link:hover span {
+  transform: translateX(-3px);
+}
+
+/* =============================================================================
    SMALL LAYOUT HELPERS
    ========================================================================== */
 /* Wrapper around a list of cards (projects, roles). */

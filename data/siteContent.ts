@@ -122,11 +122,11 @@ export const siteContent = {
           "The public website for Rytmisk Farvelade, a community music studio " +
           "association. It presents the place, what happens there, and how to " +
           "get involved, and it is built to connect to the membership platform " +
-          "once that goes live. Hosted on Netlify.",
+          "once that goes live. Built with Astro, TypeScript, and Tailwind CSS, " +
+          "and hosted on Netlify.",
         link: "https://rytmiskfarveladeforening.netlify.app/",
         repo: "https://github.com/Chililove/Farveladens-Website",
       },
-      // Copy a block above to add another project.
     ],
   },
 

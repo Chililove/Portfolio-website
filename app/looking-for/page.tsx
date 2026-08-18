@@ -1,6 +1,7 @@
 // "What I'm looking for" page (/looking-for): text from siteContent.ts.
 
 import { siteContent } from "@/data/siteContent";
+import BackLink from "../components/BackLink";
 
 export default function LookingForPage() {
   const { heading, intro, roles, valuesHeading, values, locationNote } =
@@ -9,6 +10,7 @@ export default function LookingForPage() {
   return (
     <section className="section">
       <div className="container">
+        <BackLink />
         <h1>{heading}</h1>
         <p>{intro}</p>
 

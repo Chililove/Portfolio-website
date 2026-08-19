@@ -104,6 +104,22 @@ export const siteContent = {
         repo: "https://github.com/Chililove/Chilis-ecommerce-store-project",
       },
       {
+        title: "Blokart Booking System 🪁",
+        description:
+          "An overbooking-safe rental booking system for blokarts, built in " +
+          "zero-dependency Node.js (standard library only) with a vanilla " +
+          "HTML, CSS, and JavaScript frontend. The public booking page and the " +
+          "in-store staff screen share one server, so availability can never " +
+          "disagree and double-booking is prevented. It handles group orders, " +
+          "a multilingual flow (Danish, German, English), weather closures, " +
+          "SMS and email notifications, Google Calendar sync, and online or " +
+          "in-store payment, with each integration behind a small adapter that " +
+          "swaps between mock and real. Hosted on Render (the free host can " +
+          "take about 30 seconds to wake on the first load).",
+        link: "https://blokart-bookingsystem.onrender.com/",
+        repo: "https://github.com/Chililove/Blokart-bookingsystem",
+      },
+      {
         title: "Farveladen Membership Platform 🎶",
         description:
           "A membership system for a music studio association. Members sign in " +

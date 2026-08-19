@@ -107,15 +107,11 @@ export const siteContent = {
         title: "Blokart Booking System 🪁",
         description:
           "An overbooking-safe rental booking system for blokarts, built in " +
-          "zero-dependency Node.js (standard library only) with a vanilla " +
-          "HTML, CSS, and JavaScript frontend. The public booking page and the " +
-          "in-store staff screen share one server, so availability can never " +
-          "disagree and double-booking is prevented. It handles group orders, " +
-          "a multilingual flow (Danish, German, English), weather closures, " +
-          "SMS and email notifications, Google Calendar sync, and online or " +
-          "in-store payment, with each integration behind a small adapter that " +
-          "swaps between mock and real. Hosted on Render (the free host can " +
-          "take about 30 seconds to wake on the first load).",
+          "zero-dependency Node.js with a vanilla HTML, CSS, and JavaScript " +
+          "frontend. The customer page and the in-store staff screen share one " +
+          "server, so double-booking is impossible. Includes group orders, a " +
+          "multilingual flow (Danish, German, English), notifications, Google " +
+          "Calendar sync, and payments. Hosted on Render.",
         link: "https://blokart-bookingsystem.onrender.com/",
         repo: "https://github.com/Chililove/Blokart-bookingsystem",
       },

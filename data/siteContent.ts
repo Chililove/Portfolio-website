@@ -93,6 +93,17 @@ export const siteContent = {
     // Each {} block is one project card. Copy a block to add another project.
     projects: [
       {
+        title: "Alletiders Vikar: live business website 🤝",
+        description:
+          "A production website for Alletiders Vikar, a staffing and " +
+          "recruitment agency in Esbjerg. It presents their services across " +
+          "several pages (recruitment, hiring temporary staff, and job " +
+          "seekers) with a clean, professional layout aimed at turning " +
+          "visitors into leads. Live in production for a real client.",
+        link: "https://alletidersvikar.dk",
+        repo: "",
+      },
+      {
         title: "Tiny Chili Store: full-stack e-commerce 🌶️",
         description:
           "A complete online store built with Next.js, TypeScript, and " +
